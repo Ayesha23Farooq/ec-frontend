@@ -1,0 +1,130 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+/* Color variables */
+:root {
+  --cream: #f5f5dc;
+  --beige: #f5f5dd;
+  --tan: #d2b48c;
+  --light-brown: #c69c6d;
+  --caramel: #af6e4d;
+  --med-brown: #8b5e3c;
+  --chocolate: #7b3f00;
+  --coffee: #6f4e37;
+  --dark-brown: #4b2e2b;
+  --espresso: #3b2f2f;
+  --mocha: #3c2f2f;
+  --burgundy: #800020;
+  --maroon: #800000;
+  --crimson: #a52a2a;
+  --deep-burgundy: #4a0e25;
+  --white: #ffffff;
+  --black: #000000;
+}
+/* basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  line-height: 1.6;
+  background-color: var(--cream);
+  color: var(--dark-brown);
+}
+/* sections */
+section {
+  padding: 60px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+p {
+  margin-bottom: 20px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* yeh apny pass sy dala hai mainy font*/
+.logo,
+h1,
+h2 {
+  font-family: "Tangerine", cursive;
+  font-size: 48px;
+}
+
+/* navbar */
+.navbar {
+  background-color: var(--cream);
+  color: var(--espresso);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+.nav-link.active {
+  color: var(--burgundy);
+  font-weight: bold;
+  border-bottom: 2px solid var(--burgundy);
+}
+.nav-links li a {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  color: var(--espresso);
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--burgundy);
+}
+.nav-links li a:hover {
+  color: var(--burgundy);
+  border-bottom: 2px solid var(--burgundy);
+}
+/* hamburger for nav */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--espresso);
+}
+/* responsive navbar */
+@media (max-width: 768px){
+    .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--cream);
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 180px;
+    border: 1px solid var(--light-brown);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    .nav-links.show {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+  .hamburger:hover {
+  color: var(--burgundy);
+  transform: scale(1.1);
+  text-shadow: 0 0 5px var(--burgundy), 0 0 10px var(--burgundy);
+}
+
+}
