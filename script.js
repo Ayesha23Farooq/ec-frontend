@@ -8,10 +8,13 @@ hamburger.addEventListener('click', () => {
 
 // active link highlight
 const links = document.querySelectorAll(".nav-link");
-const currentPath = window.location.pathname;
+
+// Get current file name or fallback to index.html
+const currentPage = window.location.pathname.split("/").pop() || "index.html";
 
 links.forEach(link => {
-  if(link.href.includes(`${currentPath}`)) {
+  const linkPage = link.getAttribute("href");
+  if (linkPage === currentPage) {
     link.classList.add("active");
   }
 });

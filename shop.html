@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="shop-script.js"></script>
+</head>
+<body>
+    <!-- loding common.html elements -->
+     <div id="common-placeholder"></div>
+   
+    <!-- nav include -->
+     <div id="navbar-placeholder"></div>
+
+     <!-- shop section -->
+
+    <section class="shop-container">
+  <div class="sidebar">
+    <h3>Filters</h3>
+
+    <div class="filter-group">
+      <label><input type="checkbox" value="Jackets"  class="category-filter"/> Jackets</label>
+      <label><input type="checkbox" value="Hoodies" class="category-filter"/> Hoodies</label>
+      <label><input type="checkbox" value="T-Shirts" class="category-filter"/> T-Shirts</label>
+    </div>
+
+     <div class="sort-container">
+  <label for="sortSelect">Sort by:</label>
+  <select id="sortSelect">
+    <option value="">Default</option>
+    <option value="price-asc">Price: Low to High</option>
+    <option value="price-desc">Price: High to Low</option>
+    <option value="name-asc">Name: A to Z</option>
+    <option value="name-desc">Name: Z to A</option>
+  </select>
+</div>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search products..." />
+    </div>
+  </div>
+ 
+  <div class="main-content">
+    <div class="product-grid" id="productGrid">
+      <!-- JS injects product cards here -->
+    </div>
+  </div>
+</section>
+
+     <!-- footer include -->
+      <div id="footer-placeholder"></div>
+
+      <script>
+  fetch('common.html')
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById('common-placeholder').innerHTML = data;
+      
+       // ✅ Yeh tab chalay jab navbar successfully aa chuki ho
+        const script = document.createElement('script');
+        script.src = '/client/script.js'; // yahan apni JS file ka sahi path do
+        document.body.appendChild(script);
+    });
+</script>
+<script src="products.js"></script>
+<script src="shop-script.js"></script>
+</body>
+</html>
