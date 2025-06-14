@@ -8,11 +8,11 @@
     <script defer src="shop-script.js"></script>
 </head>
 <body>
-    <!-- loding common.html elements -->
+    <!-- loding nav.html elements -->
      <div id="common-placeholder"></div>
    
     <!-- nav include -->
-     <div id="navbar-placeholder"></div>
+     <div id="navbar-placeholder"></div> 
 
      <!-- shop section -->
 
@@ -49,20 +49,30 @@
   </div>
 </section>
 
-     <!-- footer include -->
+     <!-- footer inject -->
       <div id="footer-placeholder"></div>
 
       <script>
-  fetch('common.html')
+  fetch('nav.html')
     .then(res => res.text())
     .then(data => {
       document.getElementById('common-placeholder').innerHTML = data;
       
+       // ✅ Yeh line layout reflow force karti hai
+      void document.getElementById('common-placeholder').offsetHeight;
+
        // ✅ Yeh tab chalay jab navbar successfully aa chuki ho
         const script = document.createElement('script');
         script.src = '/client/script.js'; // yahan apni JS file ka sahi path do
         document.body.appendChild(script);
     });
+
+     fetch("footer.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+
 </script>
 <script src="products.js"></script>
 <script src="shop-script.js"></script>

@@ -4,6 +4,14 @@ body {
   background-color: var(--cream);
   color: var(--dark-brown);
 }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Color variables */
 :root {
    --ivory: #fffff0;
@@ -162,12 +170,14 @@ h2 {
   max-width: 1200px;
   margin: 0 auto;
 }
+
 .product-card{
   background-color: #fff;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 6px 14px rgba(0,0,0,0.1);
   transition: transform 0.3 ease;
+  text-align: center;
 }
 .product-card:hover{
   transform: translateY(-5px);
@@ -179,6 +189,7 @@ h2 {
   border-radius: 8px;
   background-color: #fff4ea;
 }
+
 .product-card h3{
   font-size: 1.2rem;
   margin: 15px 0 5px;
@@ -259,7 +270,7 @@ h2 {
 
 /* footer */
 .footer {
-   background: transparent;   /* ❗No background */
+  background: transparent;   /* ❗No background */
   color: var(--espresso);    /* Or use any visible color */
   text-align: center;
   padding: 8px 0;
@@ -267,6 +278,7 @@ h2 {
   line-height: 1.4;
 }
 /* shop page styling */
+
 .shop-section{
   padding: 60px 20px;
   text-align: center;
@@ -346,15 +358,20 @@ h2 {
   border-radius: 6px;
   border: 1px solid var(--light-brown);
 }
+
 /* responsiveness of shop page */
 @media (max-width: 768px) {
   .shop-container {
-    flex-direction: column;
+     grid-template-columns: 1fr; /* force single column on small screen */
+    /* flex-direction: column; */
   }
 
   .shop-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+  }
+   #productGrid {
+    grid-template-columns: 1fr;
   }
 }
